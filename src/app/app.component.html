@@ -1,0 +1,21 @@
+<!-- <hello name="{{ name }}"></hello>
+<p>Start editing to see some magic happen :)</p> -->
+<!-- <ng-container *ngTemplateOutlet="testTemplate"></ng-container> -->
+
+<!-- <ng-template #testTemplate>
+  
+</ng-template> -->
+
+<component-demo>
+  <div slot="template" ngNonBindable>
+    <hello name="Mariano"></hello>
+    <div asd>This is from the template</div>
+  </div>
+</component-demo>
+
+<component-demo>
+  <div slot="template" ngNonBindable>
+    <hello name="Chelsea"></hello>
+    <div asd>This is from the second template</div>
+  </div>
+</component-demo>
