@@ -28,6 +28,10 @@ export class AppComponent {
     private _m: NgModuleRef<any>
   ) {}
 
+  public component: Type<any>;
+
+  public componentTemplate: string;
+
   ngAfterViewInit(): void {
     // console.log((<any>this.testTemplate)._declarationTContainer.)
     // const result = this.searchString(this.testTemplate, '#testTemplate');
@@ -37,10 +41,16 @@ export class AppComponent {
     // })(class DynamicComponent {});
     // const template = '<span>generated on the fly: {{name}}</span>';
     // console.log(this.template);
-    const testComponent = ComponentFactory.createComponent(
-      'test1.template.html'
-    );
-    console.log((<any>testComponent).decorators);
+
+    @Component({
+      templateUrl: 'test1.template.html',
+    })
+    class TestClass {}
+
+    this.component = TestClass;
+
+    this.componentTemplate = getAnnotation(this.component).template;
+    console.log(this.componentTemplate);
   }
 
   // private objectQueue = new Array<object>();
